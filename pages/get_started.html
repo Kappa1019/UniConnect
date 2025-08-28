@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniConnect - Get Started</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="../css/get_started.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">UniConnect</div>
+
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Search opportunities, events, people...">
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <nav class="header-nav">
+        <div class="nav-item" onclick="switchTab('feed')">
+          <div class="nav-label">Home</div>
+        </div>
+        <div class="nav-item" onclick="switchTab('network')">
+          <div class="nav-label">Network</div>
+        </div>
+        <div class="nav-item" onclick="switchTab('events')">
+          <div class="nav-label">Events</div>
+        </div>
+        <div class="nav-item" onclick="switchTab('jobs')">
+          <div class="nav-label">Jobs</div>
+        </div>
+        <div class="nav-item" onclick="toggleMessages()">
+          <div class="nav-label">Messages</div>
+          <div class="notification-badge">3</div>
+        </div>
+        <div class="nav-item" onclick="showNotifications()">
+          <div class="nav-label">Notifications</div>
+          <div class="notification-badge">5</div>
+        </div>
+        <div class="profile-avatar" onclick="showProfile()">R</div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="main-layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="profile-card">
+        <div class="profile-photo">R</div>
+        <h3>Rahul Sharma</h3>
+        <p style="color: var(--text-secondary); font-size: 14px;">B.Tech CSE, IIT Delhi</p>
+        <p style="color: var(--text-secondary); font-size: 12px; margin-top: 8px;">Open to internship opportunities</p>
+      </div>
+
+      <div class="quick-stats">
+        <h4 style="margin-bottom: 12px;">Quick Stats</h4>
+        <div class="stat-item">
+          <span>Profile views</span>
+          <strong>247</strong>
+        </div>
+        <div class="stat-item">
+          <span>Post impressions</span>
+          <strong>1.2K</strong>
+        </div>
+        <div class="stat-item">
+          <span>Network size</span>
+          <strong>342</strong>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Feed -->
+    <main class="feed-section">
+      <!-- Create Post -->
+      <div class="create-post">
+        <textarea class="create-post-input"
+          placeholder="Share an opportunity, ask a question, or connect with peers..."></textarea>
+        <div class="create-post-actions">
+          <div class="post-options">
+            <div class="post-option">
+              <span>Photo</span>
+            </div>
+            <div class="post-option" onclick="showCreateEventModal()">
+              <span>Event</span>
+            </div>
+            <div class="post-option">
+              <span>Job/Internship</span>
+            </div>
+            <div class="post-option">
+              <span>Hackathon</span>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="createPost()">Post</button>
+        </div>
+      </div>
+
+      <!-- Feed Filters -->
+      <div class="feed-filters">
+        <button class="filter-btn active" data-filter="all">All Posts</button>
+        <button class="filter-btn" data-filter="opportunities">Opportunities</button>
+        <button class="filter-btn" data-filter="hackathons">Hackathons</button>
+        <button class="filter-btn" data-filter="internships">Internships</button>
+        <button class="filter-btn" data-filter="events">Events</button>
+      </div>
+
+      <!-- Feed Posts -->
+      <div id="feed-container">
+        <div class="post-card">
+          <div class="post-header">
+            <div class="post-avatar">A</div>
+            <div class="post-meta">
+              <h3>Ananya Gupta</h3>
+              <div class="post-time">2 hours ago • IIT Bombay</div>
+            </div>
+            <div class="post-category">Hackathon</div>
+          </div>
+          <div class="post-content">
+            <strong>Smart India Hackathon 2025 - Registration Open!</strong><br><br>
+            The biggest hackathon is back! Solve real-world problems and win prizes worth ₹1 Crore. Teams of 6 students
+            can participate. Deadline: March 15, 2025.<br><br>
+            Problem statements include AI/ML, Blockchain, IoT, and more. Don't miss this opportunity!<br><br>
+            <a href="#" style="color: var(--primary-color)">Register here: sih.gov.in</a>
+          </div>
+          <div class="post-actions">
+            <div class="action-group">
+              <div class="action-btn">
+                <span>42 Likes</span>
+              </div>
+              <div class="action-btn">
+                <span>8 Comments</span>
+              </div>
+              <div class="action-btn">
+                <span>Share</span>
+              </div>
+            </div>
+            <div class="action-btn">
+              <span>Save</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card">
+          <div class="post-header">
+            <div class="post-avatar" style="background: var(--success);">M</div>
+            <div class="post-meta">
+              <h3>Microsoft Student Partners</h3>
+              <div class="post-time">5 hours ago • Official</div>
+            </div>
+            <div class="post-category">Internship</div>
+          </div>
+          <div class="post-content">
+            <strong>Microsoft Summer Internship Program 2025</strong><br><br>
+            We're hiring Software Engineering Interns for Summer 2025! Open to students graduating in 2025-2026.<br><br>
+            Locations: Hyderabad, Bangalore<br>
+            Stipend: ₹80,000/month<br>
+            Application Deadline: March 30, 2025<br><br>
+            Requirements: Strong coding skills in C++/Java/Python, problem-solving abilities.
+          </div>
+          <div class="post-actions">
+            <div class="action-group">
+              <div class="action-btn">
+                <span>156 Likes</span>
+              </div>
+              <div class="action-btn">
+                <span>23 Comments</span>
+              </div>
+              <div class="action-btn">
+                <span>Share</span>
+              </div>
+            </div>
+            <div class="action-btn">
+              <span>Save</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card">
+          <div class="post-header">
+            <div class="post-avatar" style="background: var(--warning);">P</div>
+            <div class="post-meta">
+              <h3>Priya Mehta</h3>
+              <div class="post-time">1 day ago • NIT Trichy</div>
+            </div>
+            <div class="post-category">Cultural</div>
+          </div>
+          <div class="post-content">
+            <strong>Techfest 2025 at IIT Bombay - Call for Participants!</strong><br><br>
+            Asia's largest science and technology festival is here! Participate in competitions, workshops, and
+            exhibitions.<br><br>
+            Dates: April 15-18, 2025<br>
+            Prizes worth ₹15 Lakhs<br>
+            Events: Robotics, Coding, Design, Innovation<br><br>
+            Early bird registration ends March 1st!
+          </div>
+          <div class="post-actions">
+            <div class="action-group">
+              <div class="action-btn">
+                <span>89 Likes</span>
+              </div>
+              <div class="action-btn">
+                <span>15 Comments</span>
+              </div>
+              <div class="action-btn">
+                <span>↗️</span>
+                <span>Share</span>
+              </div>
+            </div>
+            <div class="action-btn">
+              <span>Save</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="events-section">
+      <!-- Upcoming Events -->
+      <div class="upcoming-events">
+        <h3 class="section-title">Upcoming Events</h3>
+        <div class="event-item">
+          <div class="event-date">Tomorrow, 10:00 AM</div>
+          <div class="event-title">Google Developer Workshop</div>
+          <div class="event-location">Online • Free</div>
+          <div class="event-category hackathon">Workshop</div>
+        </div>
+        <div class="event-item">
+          <div class="event-date">March 5, 2025</div>
+          <div class="event-title">Amazon SDE Interview Prep</div>
+          <div class="event-location">IIT Delhi • Free</div>
+          <div class="event-category internship">Career</div>
+        </div>
+        <div class="event-item">
+          <div class="event-date">March 10-12, 2025</div>
+          <div class="event-title">HackIndia 2025</div>
+          <div class="event-location">Bangalore • ₹500</div>
+          <div class="event-category hackathon">Hackathon</div>
+        </div>
+        <div class="event-item">
+          <div class="event-date">March 15, 2025</div>
+          <div class="event-title">Cultural Night - Rendezvous</div>
+          <div class="event-location">IIT Delhi</div>
+          <div class="event-category cultural">Cultural</div>
+        </div>
+        <div class="event-item">
+          <div class="event-date">March 20, 2025</div>
+          <div class="event-title">Startup Pitch Competition</div>
+          <div class="event-location">IIIT Hyderabad</div>
+          <div class="event-category hackathon">Competition</div>
+        </div>
+      </div>
+
+      <!-- Messages -->
+      <div class="message-section">
+        <h3 class="section-title">Recent Messages</h3>
+        <div class="message-item">
+          <div class="message-avatar">
+            A
+            <div class="online-indicator"></div>
+          </div>
+          <div class="message-preview">
+            <div class="message-name">Arjun Reddy</div>
+            <div class="message-text">Hey! Are you interested in the Google hackathon?</div>
+          </div>
+          <div class="message-time">2m</div>
+        </div>
+        <div class="message-item">
+          <div class="message-avatar" style="background: var(--warning);">
+            S
+          </div>
+          <div class="message-preview">
+            <div class="message-name">Study Group - DSA</div>
+            <div class="message-text">Tomorrow's session on Dynamic Programming</div>
+          </div>
+          <div class="message-time">1h</div>
+        </div>
+        <div class="message-item">
+          <div class="message-avatar" style="background: var(--error);">
+            K
+          </div>
+          <div class="message-preview">
+            <div class="message-name">Kavya Singh</div>
+            <div class="message-text">Thanks for sharing the internship link!</div>
+          </div>
+          <div class="message-time">3h</div>
+        </div>
+      </div>
+
+      <!-- Trending Topics -->
+      <div class="upcoming-events">
+        <h3 class="section-title">Trending Topics</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span
+            style="background: rgba(33, 128, 141, 0.1); color: var(--primary-color); padding: 4px 8px; border-radius: 12px; font-size: 12px; cursor: pointer;">#SmartIndiaHackathon</span>
+          <span
+            style="background: rgba(16, 185, 129, 0.1); color: var(--success); padding: 4px 8px; border-radius: 12px; font-size: 12px; cursor: pointer;">#MicrosoftInternship</span>
+          <span
+            style="background: rgba(245, 158, 11, 0.1); color: var(--warning); padding: 4px 8px; border-radius: 12px; font-size: 12px; cursor: pointer;">#TechFest2025</span>
+          <span
+            style="background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 4px 8px; border-radius: 12px; font-size: 12px; cursor: pointer;">#IITDelhi</span>
+          <span
+            style="background: rgba(239, 68, 68, 0.1); color: var(--error); padding: 4px 8px; border-radius: 12px; font-size: 12px; cursor: pointer;">#PlacementPrep</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Create Event Modal -->
+  <div class="modal-overlay" id="createEventModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Create Event</h2>
+        <button class="close-btn" onclick="closeModal('createEventModal')">&times;</button>
+      </div>
+      <form id="createEventForm">
+        <div class="form-group">
+          <label class="form-label">Event Title</label>
+          <input type="text" class="form-input" placeholder="Enter event title" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select class="form-input" required>
+            <option value="">Select category</option>
+            <option value="hackathon">Hackathon</option>
+            <option value="internship">Internship</option>
+            <option value="workshop">Workshop</option>
+            <option value="cultural">Cultural Event</option>
+            <option value="competition">Competition</option>
+            <option value="seminar">Seminar</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Date & Time</label>
+          <input type="datetime-local" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Location</label>
+          <input type="text" class="form-input" placeholder="Online or Physical location" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea class="form-input" rows="4" placeholder="Describe your event..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Registration Link (Optional)</label>
+          <input type="url" class="form-input" placeholder="https://example.com/register">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 16px;">Create Event</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Create Event Modal -->
+  <div class="modal-overlay" id="createEventModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Create Event</h2>
+        <button class="close-btn" onclick="closeModal('createEventModal')">&times;</button>
+      </div>
+      <form id="createEventForm">
+        <!-- Same form content -->
+      </form>
+    </div>
+  </div>
+
+  <!-- Link to external JS -->
+  <script src="../js/get_started.js"></script>
+</body>
+
+</html>
